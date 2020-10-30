@@ -20,7 +20,13 @@
 
   &-content {
     height: 84%;
-    padding: 2rem 0;
+    padding: 0 0 2rem 0;
+
+    &-search {
+      height: 10%;
+      width: 76%;
+      margin: auto;
+    }
   }
 
   &-footer {
@@ -87,6 +93,10 @@
 
   ion-icon {
     font-size: 22px;
+    &:hover {
+      transform: scale(1.4);
+    }
+    transition: all 0.5s ease;
   }
 }
 

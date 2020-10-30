@@ -4,6 +4,7 @@ import produce from 'immer';
 const initialState = {
   name: 'home-reducer',
   onlyEven: false,
+  searchText: '',
 };
 
 const home = (state = initialState, action) => {
@@ -15,7 +16,9 @@ const home = (state = initialState, action) => {
       case actionTypes.SET_ONLY_EVEN:
         draft.onlyEven = action.val;
         break;
-
+      case actionTypes.SET_SEARCH_TEXT:
+        draft.searchText = action.val;
+        break;
       default:
     }
   });

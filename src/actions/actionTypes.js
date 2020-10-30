@@ -17,4 +17,6 @@ export const SET_FAVORITE = 'SET_FAVORITE';
 export const DETAILS_LOADED = 'DETAILS_LOADED';
 export const DETAILS_LOADING = 'DETAILS_LOADING';
 export const SET_ONLY_EVEN = 'SET_ONLY_EVEN';
+export const SET_SEARCH_TEXT = 'SET_SEARCH_TEXT';
 export const SET_LOADING = 'SET_LOADING';
+export const CLOSE_MODAL = 'CLOSE_MODAL';

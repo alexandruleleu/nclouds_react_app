@@ -45,6 +45,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test-coverage": "react-scripts test src --coverage --coverageDirectory='coverage'",
     "eject": "react-scripts eject",
     "dev-server": "node ./server/server.js"
   },
@@ -61,6 +62,13 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
+    ]
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "**/*.{js,jsx}",
+      "!**/node_modules/**",
+      "!**/vendor/**"
     ]
   },
   "description": "An Ionic project"

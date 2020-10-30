@@ -5,6 +5,7 @@ import produce from 'immer';
 const initialState = {
   name: 'modal-reducer',
   loading: false,
+  loadingMore: false,
   data: [],
   favoriteIds: {},
   totalCount: TOTAL_COUNT,
@@ -21,18 +22,37 @@ const login = (state = initialState, action) => {
         draft.loading = false;
         draft.data = action.data.map((item, index) => ({
           ...item,
-          Id: index,
-          Favorite: !!draft.favoriteIds[index],
+          Id: index + 1,
+          Favorite: !!draft.favoriteIds[index + 1],
         }));
+        break;
+      case actionTypes.METADATA_LOADING_MORE:
+        draft.loadingMore = true;
+        break;
+      case actionTypes.METADATA_LOADED_MORE:
+        draft.loadingMore = false;
+        draft.pageNumber += 1;
+        draft.data.push(
+          ...action.data.map((item, index) => ({
+            ...item,
+            Id: draft.data.length + index + 1,
+            Favorite: !!draft.favoriteIds[draft.data.length + index + 1],
+          }))
+        );
         break;
       case actionTypes.SET_LOADING:
         draft.loading = action.val;
         break;
       case actionTypes.SET_FAVORITE:
-        const { val, index } = action;
+        const { val, id } = action;
         //insertion and deletion are more faster in objects
-        draft.data[index].Favorite = val;
-        val ? (draft.favoriteIds[index] = index) : delete draft.favoriteIds[index];
+        draft.data[id - 1].Favorite = val;
+        val ? (draft.favoriteIds[id] = id) : delete draft.favoriteIds[id];
+        break;
+      case actionTypes.CLOSE_MODAL:
+        draft.data = [];
+        draft.favoriteIds = {};
+        draft.pageNumber = 1;
         break;
       default:
     }

@@ -46,10 +46,13 @@ export const signOut = () => async (dispatch) => {
   auth.signOut();
   dispatch(actionCreators.signOut());
 };
-export const setFavorite = (val, index) => async (dispatch) =>
-  dispatch(actionCreators.setFavorite(val, index));
+export const setFavorite = (val, id) => async (dispatch) =>
+  dispatch(actionCreators.setFavorite(val, id));
 export const setOnlyEven = (val) => async (dispatch) => dispatch(actionCreators.setOnlyEven(val));
+export const setSearchText = (val) => async (dispatch) =>
+  dispatch(actionCreators.setSearchText(val));
 export const setLoading = (val) => async (dispatch) => dispatch(actionCreators.setLoading(val));
+export const closeModal = () => async (dispatch) => dispatch(actionCreators.closeModal());
 
 export const fetchMetadata = () => async (dispatch) => {
   dispatch(actionCreators.metadataLoading());
@@ -68,7 +71,7 @@ export const fetchMoreMetadata = () => async (dispatch, getState) => {
   const { pageNumber } = getState().modalContentReducer;
 
   try {
-    const res = await getMetadataPaginated(pageNumber);
+    const res = await getMetadataPaginated(pageNumber + 1);
     dispatch(actionCreators.metadataLoadedMore(res));
   } catch (err) {
     console.log(err);

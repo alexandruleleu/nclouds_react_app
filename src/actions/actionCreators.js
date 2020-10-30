@@ -82,11 +82,11 @@ export default {
       err,
     };
   },
-  setFavorite(val, index) {
+  setFavorite(val, id) {
     return {
       type: actionTypes.SET_FAVORITE,
       val,
-      index,
+      id,
     };
   },
   setOnlyEven(val) {
@@ -95,10 +95,21 @@ export default {
       val,
     };
   },
+  setSearchText(val) {
+    return {
+      type: actionTypes.SET_SEARCH_TEXT,
+      val,
+    };
+  },
   setLoading(val) {
     return {
       type: actionTypes.SET_LOADING,
       val,
+    };
+  },
+  closeModal() {
+    return {
+      type: actionTypes.CLOSE_MODAL,
     };
   },
 };
