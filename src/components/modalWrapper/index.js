@@ -11,7 +11,7 @@ const ModalWrapper = ({ children, modalLabel, modalIsOpen, color, closeModal }) 
     content: {
       top: '50%',
       left: '50%',
-      width: '90vw',
+      width: '70vw',
       height: '80vh',
       border: `3px solid ${color}`,
       borderRadius: '10px',

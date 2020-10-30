@@ -11,11 +11,19 @@ import {
   IonButton,
   IonNote,
   IonSpinner,
+  IonSearchbar,
 } from '@ionic/react';
 import ModalWrapper from '../../../components/modalWrapper';
 import ModalContent from '../../../components/modalContent';
 
-const Home = ({ onlyEven, onSignOut, onSetOnlyEven }) => {
+const Home = ({
+  onlyEven,
+  searchText,
+  onSignOut,
+  onSetOnlyEven,
+  onSetSearchText,
+  onCloseModal,
+}) => {
   const { currentUser } = useContext(AuthContext);
   let { filter } = useParams();
   let history = useHistory();
@@ -33,6 +41,7 @@ const Home = ({ onlyEven, onSignOut, onSetOnlyEven }) => {
 
   const closeModal = () => {
     setIsOpen(false);
+    onCloseModal();
     history.push(`/home`);
   };
 
@@ -120,6 +129,12 @@ const Home = ({ onlyEven, onSignOut, onSetOnlyEven }) => {
         </section>
         {/* MODAL CONTENT */}
         <section className="modal-content">
+          <div className="modal-content-search">
+            <IonSearchbar
+              value={searchText}
+              onIonChange={(e) => onSetSearchText(e.detail.value)}
+            ></IonSearchbar>
+          </div>
           <ModalContent />
         </section>
         {/* MODAL FOOTER */}

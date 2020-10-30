@@ -13,7 +13,7 @@ const MainLayout = ({ children }) => {
 
   return (
     <div className="app-container">
-      <header>
+      <header className="app-container-title">
         <h1>nClouds React App</h1>
       </header>
       <main>{children}</main>

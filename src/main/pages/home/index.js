@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import HomeComponent from './Home';
-import { signOut, setOnlyEven } from '../../../actions';
+import { signOut, setOnlyEven, setSearchText, closeModal } from '../../../actions';
 
 const mapStateToProps = (state) => ({
   ...state.homeReducer,
@@ -12,6 +12,12 @@ const mapDispatchToProps = (dispatch) => ({
   },
   onSetOnlyEven: async (val) => {
     dispatch(setOnlyEven(val));
+  },
+  onSetSearchText: async (val) => {
+    dispatch(setSearchText(val));
+  },
+  onCloseModal: async () => {
+    dispatch(closeModal());
   },
 });
 

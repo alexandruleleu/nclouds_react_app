@@ -16,7 +16,7 @@
 }
 
 .home-main-container {
-  height: 100%;
+  height: calc(100% - 72px);
   display: flex;
   justify-content: center;
   align-items: center;
