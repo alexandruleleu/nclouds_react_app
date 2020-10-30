@@ -1,0 +1,35 @@
+.home-container {
+  height: 100vh;
+  background-image: url('../../img/background-login.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.custom-header {
+  padding: 10px 20px !important;
+
+  .button {
+    color: #fff;
+    &.activated {
+      color: #fff;
+    }
+  }
+}
+
+.home-main-container {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-a {
+  ion-button {
+    --background: var(--color-btn-a);
+  }
+}
+
+.btn-b {
+  ion-button {
+    --background: var(--color-btn-b);
+  }
+}
