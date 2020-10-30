@@ -1,4 +1,4 @@
-import React, { useContext, useState, Suspense, lazy } from 'react';
+import React, { useContext, useEffect, useState, Suspense, lazy } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import { AuthContext } from '../../../components/auth';
 import {
@@ -30,6 +30,10 @@ const Home = ({
   const [modalIsOpen, setIsOpen] = useState(false);
   const [btnColor, setBtnColor] = useState('');
   const [modalLabel, setModalLabel] = useState('');
+  const routeActions = {
+    all: ['btn-a', 'All Country code', 'all'],
+    favorites: ['btn-b', 'Favorite country code', 'favorites'],
+  };
 
   const onClickBtn = (btn, label, param) => {
     const color = getComputedStyle(document.documentElement).getPropertyValue(`--color-${btn}`);
@@ -38,6 +42,11 @@ const Home = ({
     setModalLabel(label);
     history.push(`/home/${param}`);
   };
+
+  useEffect(() => {
+    if (filter) onClickBtn(...routeActions[filter]);
+    // eslint-disable-next-line
+  }, []);
 
   const closeModal = () => {
     setIsOpen(false);
