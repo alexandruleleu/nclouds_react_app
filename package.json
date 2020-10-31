@@ -44,8 +44,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "test-coverage": "react-scripts test src --coverage --coverageDirectory='coverage'",
+    "test": "react-scripts test src",
+    "test-coverage": "npm test --coverage --coverageDirectory='coverage'",
     "eject": "react-scripts eject",
     "dev-server": "node ./server/server.js"
   },
